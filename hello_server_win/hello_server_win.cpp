@@ -116,7 +116,6 @@ int main(int argc, char* argv[])
     //accept
     szClntAddr = sizeof(clntAddr);
     hClntSock = accept(hServSock, (SOCKADDR*)&clntAddr, &szClntAddr);
-    printf("after accept");
 
     if (hClntSock == INVALID_SOCKET)
     {
@@ -125,13 +124,11 @@ int main(int argc, char* argv[])
 
     //send
     send(hClntSock, message, sizeof(message), 0);
-    printf("after send");
-
+ 
     closesocket(hClntSock);
     closesocket(hServSock);
     WSACleanup();
 
-    printf("after WSACleanup");
     return 0;
 }
 
